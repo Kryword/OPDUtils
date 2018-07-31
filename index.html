@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Generador de Tabla de Características</title>
+</head>
+<body onload="main()">
+	
+
+	<table id="table1" border="1px"><th>Nivel<td>Característica Clave: 
+	<select id="carC">
+		<option value="Fuerza">Fuerza</option>
+		<option value="Resistencia">Resistencia</option>
+		<option value="Agilidad">Agilidad</option>
+		<option value="Velocidad">Velocidad</option>
+		<option value="Reflejos">Reflejos</option>
+		<option value="Sigilo">Sigilo</option>
+		<option value="Puntería">Puntería</option>
+		<option value="Poder de Destrucción">Poder de Destrucción</option>
+		<option value="Pericia">Pericia</option>
+		<option value="Supervivencia">Supervivencia</option>
+	</select>
+
+	</td><td>Principal 1:
+	<select id="carP1">
+		<option value="Fuerza">Fuerza</option>
+		<option value="Resistencia">Resistencia</option>
+		<option value="Agilidad">Agilidad</option>
+		<option value="Velocidad">Velocidad</option>
+		<option value="Reflejos">Reflejos</option>
+		<option value="Sigilo">Sigilo</option>
+		<option value="Puntería">Puntería</option>
+		<option value="Poder de Destrucción">Poder de Destrucción</option>
+		<option value="Pericia">Pericia</option>
+		<option value="Supervivencia">Supervivencia</option>
+	</select>
+	</td><td>Principal 2:
+	<select id="carP2">
+		<option value="Fuerza">Fuerza</option>
+		<option value="Resistencia">Resistencia</option>
+		<option value="Agilidad">Agilidad</option>
+		<option value="Velocidad">Velocidad</option>
+		<option value="Reflejos">Reflejos</option>
+		<option value="Sigilo">Sigilo</option>
+		<option value="Puntería">Puntería</option>
+		<option value="Poder de Destrucción">Poder de Destrucción</option>
+		<option value="Pericia">Pericia</option>
+		<option value="Supervivencia">Supervivencia</option>
+	</select>
+	</td><td>Secundaria 1: 
+	<select id="carS1">
+		<option value="Fuerza">Fuerza</option>
+		<option value="Resistencia">Resistencia</option>
+		<option value="Agilidad">Agilidad</option>
+		<option value="Velocidad">Velocidad</option>
+		<option value="Reflejos">Reflejos</option>
+		<option value="Sigilo">Sigilo</option>
+		<option value="Puntería">Puntería</option>
+		<option value="Poder de Destrucción">Poder de Destrucción</option>
+		<option value="Pericia">Pericia</option>
+		<option value="Supervivencia">Supervivencia</option>
+	</select>
+	</td><td>Secundaria 2: 
+	<select id="carS2">
+		<option value="Fuerza">Fuerza</option>
+		<option value="Resistencia">Resistencia</option>
+		<option value="Agilidad">Agilidad</option>
+		<option value="Velocidad">Velocidad</option>
+		<option value="Reflejos">Reflejos</option>
+		<option value="Sigilo">Sigilo</option>
+		<option value="Puntería">Puntería</option>
+		<option value="Poder de Destrucción">Poder de Destrucción</option>
+		<option value="Pericia">Pericia</option>
+		<option value="Supervivencia">Supervivencia</option>
+	</select>
+	</td></th></table>
+	<textarea id="text" disabled></textarea>
+
+
+	<script type="text/javascript">
+		var lvlIndex = 0;
+		var lvls = [0, 10, 15, 20, 30, 40, 45, 50, 60, 70, 75, 80, 90, 100, 105, 110, 120, 130, 135, 140, 150]
+		// Initialization of sessionStorage memory, every caracteristic has 0 points
+
+		var cars = [0, 0, 0, 0];
+		var lvl = lvls[lvlIndex];
+		var carP = Math.floor(lvl / 10);
+		var car12Points = 1;
+		var car34Points = 0;
+
+		function main(){
+			var table = document.getElementById("table1");
+			var button = document.getElementById("secretButton");
+			if (lvl <= 150){
+				var row1 = table.insertRow(-1);
+				var lvlT = row1.insertCell(0);
+				lvlT.innerHTML = lvl;
+				var car1 = row1.insertCell(1);
+				carP = Math.floor(lvl / 10);
+				car1.innerHTML = carP;
+				var car2R = row1.insertCell(2);
+				var car3R = row1.insertCell(3);
+				var car4R = row1.insertCell(4);
+				var car5R = row1.insertCell(5);
+				car2R.innerHTML = cars[0];
+				car3R.innerHTML = cars[1];
+				car4R.innerHTML = cars[2];
+				car5R.innerHTML = cars[3];
+				var car4Button = button.cloneNode(true);
+				var car5Button = button.cloneNode(true);
+				var car2Button = button.cloneNode(true);
+				var car3Button = button.cloneNode(true);
+				if (lvl % 10 == 0 || lvl % 15 == 0 && car12Points > 0){
+					car2Button.addEventListener('click', function(){
+					    add(0, this, car3Button);
+					}, false);
+
+					
+					car3Button.addEventListener('click', function(){
+					    add(1, this, car2Button);
+					}, false);
+
+					if (cars[0] < Math.floor(lvls[lvlIndex + 1]/10)){						
+						car2R.appendChild(car2Button);
+					}
+
+					if (cars[1] < Math.floor(lvls[lvlIndex + 1]/10)){
+						car3R.appendChild(car3Button);
+					}
+
+				}
+				if (lvl % 15 == 0 && car34Points > 0){
+					
+					car4Button.addEventListener('click', function(){
+					    add(2, this, car5Button);
+					}, false);
+					
+					car5Button.addEventListener('click', function(){
+					    add(3, this, car4Button);
+					}, false);
+
+					if (cars[2] < Math.floor(lvls[lvlIndex + 1]/10)){						
+						car4R.appendChild(car4Button);
+					}
+
+					if (cars[3] < Math.floor(lvls[lvlIndex + 1]/10)){
+						car5R.appendChild(car5Button);
+					}
+				}
+			}
+			var textArea = document.getElementById("text");
+			if (lvlIndex > 0){
+				var carC = document.getElementById("carC");
+				var carP1 = document.getElementById("carP1");
+				var carP2 = document.getElementById("carP2");
+				var carS1 = document.getElementById("carS1");
+				var carS2 = document.getElementById("carS2");
+				var carsText = [carP1.value, carP2.value, carS1.value, carS2.value];
+				var carPText = carC.value;
+
+				textArea.value += "Nivel " + lvls[lvlIndex] + ": " + carPText + " " + carP + ", " + carsText[0] + " " + cars[0] + ", " + carsText[1] + " " + cars[1] + ", " + carsText[2] + " " + cars[2] + ", " + carsText[3] + " " + cars[3] + "\n";
+			}
+		}
+
+
+
+
+		function add(car, car1, car2){
+			if (car == 0|| car == 1){
+				car12Points--;
+				if (car12Points <= 0){
+					remove(car1);
+					if (car2.parentNode != null){
+						remove(car2);
+					}
+				}
+			}else if(car == 2 || car == 3){
+				car34Points--;
+				if (car34Points <= 0){
+					remove(car1);
+					if (car2.parentNode != null){
+						remove(car2);
+					}
+				}
+			}
+			cars[car] = cars[car] + 1;
+			if (cars[car] >= Math.floor(lvls[lvlIndex]/10) && car1.parentNode != null){
+				remove(car1);
+			}
+
+
+			if (car12Points == 0 && car34Points == 0 && lvlIndex <= lvls.length){
+				lvlIndex++;
+				lvl = lvls[lvlIndex+1];
+				if (lvl % 10 == 0){
+					car12Points++;
+				}
+				if (lvl % 15 == 0){
+					car12Points++;
+					car34Points++;
+				}
+				if (lvl % 30 == 0){
+					car34Points++;
+				}
+				main();
+			}
+		}
+
+		function remove(button){
+			button.parentNode.removeChild(button);
+		}
+	</script>
+</body>
+	<div hidden="true"><button id="secretButton">+1</button></div>
+</html>
