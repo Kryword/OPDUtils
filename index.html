@@ -2,11 +2,10 @@
 <html>
 <head>
 	<title>Generador de Tabla de Características</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body onload="main()">
-	
-
-	<table id="table1" border="1px"><th>Nivel<td>Característica Clave: 
+	<center><table id="table1" border="1px"><tr><th>Nivel</th><th>Característica Clave: 
 	<select id="carC">
 		<option value="Fuerza">Fuerza</option>
 		<option value="Resistencia">Resistencia</option>
@@ -20,7 +19,7 @@
 		<option value="Supervivencia">Supervivencia</option>
 	</select>
 
-	</td><td>Principal 1:
+	</th><th>Principal 1:
 	<select id="carP1">
 		<option value="Fuerza">Fuerza</option>
 		<option value="Resistencia">Resistencia</option>
@@ -33,7 +32,7 @@
 		<option value="Pericia">Pericia</option>
 		<option value="Supervivencia">Supervivencia</option>
 	</select>
-	</td><td>Principal 2:
+	</th><th>Principal 2:
 	<select id="carP2">
 		<option value="Fuerza">Fuerza</option>
 		<option value="Resistencia">Resistencia</option>
@@ -46,7 +45,7 @@
 		<option value="Pericia">Pericia</option>
 		<option value="Supervivencia">Supervivencia</option>
 	</select>
-	</td><td>Secundaria 1: 
+	</th><th>Secundaria 1: 
 	<select id="carS1">
 		<option value="Fuerza">Fuerza</option>
 		<option value="Resistencia">Resistencia</option>
@@ -59,7 +58,7 @@
 		<option value="Pericia">Pericia</option>
 		<option value="Supervivencia">Supervivencia</option>
 	</select>
-	</td><td>Secundaria 2: 
+	</th><th>Secundaria 2: 
 	<select id="carS2">
 		<option value="Fuerza">Fuerza</option>
 		<option value="Resistencia">Resistencia</option>
@@ -72,15 +71,13 @@
 		<option value="Pericia">Pericia</option>
 		<option value="Supervivencia">Supervivencia</option>
 	</select>
-	</td></th></table>
-	<textarea id="text" disabled></textarea>
+	</th></tr></table>
+	<textarea id="text" rows="22" disabled></textarea></center>
 
 
 	<script type="text/javascript">
 		var lvlIndex = 0;
 		var lvls = [0, 10, 15, 20, 30, 40, 45, 50, 60, 70, 75, 80, 90, 100, 105, 110, 120, 130, 135, 140, 150]
-		// Initialization of sessionStorage memory, every caracteristic has 0 points
-
 		var cars = [0, 0, 0, 0];
 		var lvl = lvls[lvlIndex];
 		var carP = Math.floor(lvl / 10);
@@ -183,7 +180,7 @@
 				}
 			}
 			cars[car] = cars[car] + 1;
-			if (cars[car] >= Math.floor(lvls[lvlIndex]/10) && car1.parentNode != null){
+			if (cars[car] >= Math.floor(lvls[lvlIndex+1]/10) && car1.parentNode != null){
 				remove(car1);
 			}
 
