@@ -20,7 +20,7 @@ tr:nth-child(even){
 }
 
 th{
-	background-color: #a32020;
+	background-color: #E62E00;
 	color: white;
 }
 tr:hover{
@@ -28,9 +28,9 @@ tr:hover{
 }
 
 #secretButton{
-	background-color: #a32020;
+	background-color: #E62E00;
 	color: white;
 }
 #secretButton:hover{
-	background-color:#e52d2d;
+	background-color:#a32020;
 }
