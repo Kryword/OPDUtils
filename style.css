@@ -21,17 +21,28 @@ tr:nth-child(even){
 }
 
 th{
-	background-color: #E62E00;
+	background-color: #c52525;
 	color: white;
+	font-family: 'Roboto', sans-serif;
+	padding: 8px;
 }
 tr:hover{
 	background-color: #7a7a7a;
 }
 
 #secretButton{
-	background-color: #E62E00;
+	background-color: #c52525;
 	color: white;
 }
 #secretButton:hover{
 	background-color:#a32020;
+}
+select{
+	font-size: 1em;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	background-color: #4f4f4f;
+}
+select:hover{
+	background-color: #7a7a7a;
 }
