@@ -20,7 +20,7 @@ tr:nth-child(even){
 }
 
 th{
-	font-size: 0.5em;
+	font-size: 0.7em;
 	background-color: #c52525;
 	color: white;
 	font-family: 'Roboto', sans-serif;
@@ -38,7 +38,7 @@ tr:hover{
 	background-color:#a32020;
 }
 select{
-	width: 50%;
+	width: 100%;
 
 	font-family: 'Roboto', sans-serif;
 	color: white;
