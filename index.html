@@ -94,6 +94,7 @@
 				var lvlT = row1.insertCell(0);
 				lvlT.innerHTML = lvl;
 				var car1 = row1.insertCell(1);
+				carPAnterior = carP;
 				carP = Math.floor(lvl / 10);
 				car1.innerHTML = carP;
 				var car2R = row1.insertCell(2);
@@ -156,7 +157,7 @@
 				var carsText = [carP1.value, carP2.value, carS1.value, carS2.value];
 				var carPText = carC.value;
 
-				textArea.value += "[b]Nivel " + lvls[lvlIndex] + ":[/b] " + carPText + " " + carP + ", " + carsText[0] + " " + cars[0] + ", " + carsText[1] + " " + cars[1] + ", " + carsText[2] + " " + cars[2] + ", " + carsText[3] + " " + cars[3] + "\n";
+				textArea.value += "[b]Nivel " + lvls[lvlIndex] + ":[/b] " + carPText + " " + Math.floor(lvls[lvlIndex]/10) + ", " + carsText[0] + " " + cars[0] + ", " + carsText[1] + " " + cars[1] + ", " + carsText[2] + " " + cars[2] + ", " + carsText[3] + " " + cars[3] + "\n";
 			}
 		}
 
